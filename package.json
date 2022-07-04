@@ -8,10 +8,9 @@
   "description": "with this App you can find easly a trip or if you want you can add a trip",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"nodemon ./server/index.js "
+    "start": "nodemon ./server/index.js "
   },
   "repository": {
     "type": "git",
