@@ -41,7 +41,7 @@ mongoose
   })
 
 app.get("/read", (req, res) => {
-  trips.trips.find({}, (err, result) => {
+  db.trips.find({}, (err, result) => {
     if (err) {
       console.log(err);
     }
