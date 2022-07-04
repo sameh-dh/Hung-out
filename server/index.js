@@ -1,5 +1,5 @@
 const express = require("express");
-const trips = require("../database/trips")
+const db = require("../database/trips")
 const app = express();
 
 const port =  1337;
