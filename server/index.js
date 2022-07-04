@@ -1,5 +1,7 @@
 const express = require("express");
+const trips = require("../database/trips")
 const app = express();
+
 const port =  1337;
 const {trips} = require('../database/trips')
 app.use(express.json());
@@ -10,7 +12,7 @@ const mongoose = require("mongoose");
 
 //mongoose connection  
 mongoose
-  .connect("mongodb://localhost:27017", {
+  .connect("mongodb+srv://team123:team123@oneforall.sgmqhhk.mongodb.net/trips?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -38,8 +40,14 @@ mongoose
     })
   })
 
-
-
+app.get("/read", (req, res) => {
+  trips.trips.find({}, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
+    res.send(result);
+  });
+})
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
