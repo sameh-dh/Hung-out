@@ -1,5 +1,5 @@
 const express = require("express");
-const db = require("../database/trips")
+const trips = require("../database/trips")
 const app = express();
 
 const port =  1337;
@@ -27,7 +27,7 @@ mongoose
 });
 
 app.get("/read", (req, res) => {
-  db.trips.find({}, (err, result) => {
+  trips.trips.find({}, (err, result) => {
     if (err) {
       console.log(err);
     }
