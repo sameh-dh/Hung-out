@@ -11,7 +11,7 @@ const mongoose = require("mongoose");
 
 //mongoose connection  
 mongoose
-  .connect("mongodb://localhost:27017", {
+  .connect("mongodb+srv://team123:team123@oneforall.sgmqhhk.mongodb.net/trips?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
