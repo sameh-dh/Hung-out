@@ -20,8 +20,8 @@ mongoose
     console.log("Cannot connect to DB");
   });
 
-app.get("/", (req, res) => {
-  res.render("index");
+  app.get('/get', (req, res) =>{
+    res.json("index")
 });
 
 
