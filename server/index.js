@@ -10,7 +10,7 @@ const mongoose = require("mongoose");
 
 //mongoose connection  
 mongoose
-  .connect("mongodb://localhost:27017", {
+  .connect("mongodb://localhost:27017/MyDataBase", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -23,4 +23,11 @@ mongoose
 
 app.get("/", (req, res) => {
   res.render("index");
+});
+
+
+
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
 });
