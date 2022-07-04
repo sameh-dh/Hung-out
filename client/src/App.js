@@ -1,9 +1,11 @@
 import './App.css'
+import data from './data';
+import Home from './homePage';
 
 function App() {
   return (
     <div className="App">
-     Hung-Out 
+    <Home data={data} />
     </div>
   );
 }
