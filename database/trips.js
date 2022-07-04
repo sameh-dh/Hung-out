@@ -22,4 +22,6 @@ const UserSchema = new mongoose.Schema({
 
 
 
-  module.exports = mongoose.model('trip',UserSchema)
+ 
+  const trips = mongoose.model('trips',UserSchema);
+  module.exports.trips = trips;

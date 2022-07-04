@@ -1,5 +1,7 @@
 const express = require("express");
+const db = require("../database/trips")
 const app = express();
+
 const port =  1337;
 app.use(express.json());
 app.use(express.static("./client/build"));
@@ -24,8 +26,14 @@ mongoose
     res.json("index")
 });
 
-
-
+app.get("/read", (req, res) => {
+  db.trips.find({}, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
+    res.send(result);
+  });
+})
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
