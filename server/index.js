@@ -1,7 +1,6 @@
 const express = require("express");
-const db = require("./db/schema");
 const app = express();
-const port = 3000;
+const port =  1337;
 app.use(express.json());
 app.use(express.static("./client/build"));
 app.use(express.urlencoded({ extended: true }));
@@ -10,7 +9,7 @@ const mongoose = require("mongoose");
 
 //mongoose connection  
 mongoose
-  .connect("mongodb://localhost:27017/MyDataBase", {
+  .connect("mongodb://localhost:27017", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
