@@ -22,4 +22,5 @@ const UserSchema = new mongoose.Schema({
 
 
 
-  module.exports = mongoose.model('database',UserSchema)
+ const trips = mongoose.model('trips',UserSchema)
+  module.exports.trips = trips

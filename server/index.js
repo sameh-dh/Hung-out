@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const port =  1337;
+const {trips} = require('../database/trips')
 app.use(express.json());
 app.use(express.static("./client/build"));
 app.use(express.urlencoded({ extended: true }));
@@ -17,12 +18,25 @@ mongoose
     console.log("Hey u are connected To db....");
   })
   .catch((err) => {
-    console.log("Cannot connect to DB");
+    console.log(err);
   });
 
   app.get('/get', (req, res) =>{
     res.json("index")
 });
+  app.post('/get',(req,res)=>{
+    const newTrips= new trips ({
+      destination : req.body.destination,
+      price : req.body.price,
+      img : req.body.img
+    })
+    newTrips.save().then((data)=>{
+      res.status(201).send(data)
+    })
+    .catch((err)=>{
+      res.send(404).send(err)
+    })
+  })
 
 
 
