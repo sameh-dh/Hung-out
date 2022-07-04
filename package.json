@@ -3,5 +3,24 @@
     "express": "^4.18.1",
     "mongoose": "^6.4.2",
     "nodemon": "^2.0.18"
-  }
+  },
+  "name": "hung-out",
+  "description": "with this App you can find easly a trip or if you want you can add a trip",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"nodemon ./server/index.js "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sameh-dh/Hung-out.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sameh-dh/Hung-out/issues"
+  },
+  "homepage": "https://github.com/sameh-dh/Hung-out#readme"
 }

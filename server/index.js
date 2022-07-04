@@ -1,5 +1,7 @@
 const express = require("express");
+const db = require("../database/trips")
 const app = express();
+
 const port =  1337;
 app.use(express.json());
 app.use(express.static("./client/build"));
@@ -20,12 +22,18 @@ mongoose
     console.log("Cannot connect to DB");
   });
 
-app.get("/", (req, res) => {
-  res.render("index");
+  app.get('/get', (req, res) =>{
+    res.json("index")
 });
 
-
-
+app.get("/read", (req, res) => {
+  db.trips.find({}, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
+    res.send(result);
+  });
+})
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
