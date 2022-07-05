@@ -1,15 +1,26 @@
 import './App.css'
-import data from './data';
+// import data from './data';
 import Home from './homePage';
-import Trips from  './Trips';
 
-import axios from 'axios'
+import React,{useEffect,useState} from 'react';
+import Axios from 'axios';
+
+
 
 function App() {
+  const [data,setData] = useState([])
+  useEffect(()=>{
+    Axios.get('http://localhost:1337/read').then(response =>
+    {
+      setData(response.data)
+    })
+})
+
+
   return (
     <div className="App">
     <Home data={data} />
-    <Trips data ={data}/>
+   
     </div>
   );
   
