@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const db = require("../database/trips");
 var cors = require('cors');
 const app = express();
-
+const port =  1337;
 
 
 const {trips} = require('../database/trips')
@@ -70,7 +70,7 @@ app.delete("/delete/:id", (req, res) => {
   });
 });
 
-const port =  1337;
+
 
 //update data from database 
 app.put("/update",  (req, res) => {
@@ -105,7 +105,7 @@ app.put("/update",  (req, res) => {
  
 }
 )
-
+//listening to port 1337
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });

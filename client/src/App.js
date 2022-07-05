@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="App">
     <Home data={data} setData={setData} />
-    <Home data={data} />
+
     <AddTrips />
     </div>
   );
