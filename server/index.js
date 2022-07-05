@@ -12,7 +12,7 @@ const mongoose = require("mongoose");
 
 //mongoose connection  
 mongoose
-  .connect("mongodb+srv://team123:team123@oneforall.sgmqhhk.mongodb.net/trips?retryWrites=true&w=majority", {
+  .connect("mongodb://localhost:27017/hung-out", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -48,6 +48,17 @@ app.get("/read", (req, res) => {
     res.send(result);
   });
 })
+
+app.delete("/delete/:id", (req, res) => {
+  const id = req.params.id;
+  db.trips.findByIdAndRemove(id).exec()
+  db.trips.find({}, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
+    res.send(result);
+  });
+});
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
