@@ -65,15 +65,30 @@ app.delete("/delete/:id", (req, res) => {
 app.put("/update",  (req, res) => {
   const price= req.body.price
   const destination = req.body.destination;
+  const img = req.body.img;
   const id= req.body._id
- trips.updateOne({_id:id},{$set:{
+  console.log(req.body._id)
+ const test=()=>{
+    if (id===undefined){
+      return {destination:destination}
+    }else{
+      return {_id:id}
+    }
+  }
+  //using update one u can choose how to to search for element and then what to set into it 
+ trips.updateOne(test(),{$set:{
   price:price,
-  destination:destination
-}},(err, res)=>{
+  destination:destination,
+  img:img
+
+}},
+//upset will check if the id doesn't already exist it will add new data to the database
+{upsert:true},(err, result)=>{
   if (err){
     console.log(err);
   }else{
     console.log("updated successfully")
+    res.json("Bravo")
   }
  } )
  
