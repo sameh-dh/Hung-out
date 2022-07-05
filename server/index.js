@@ -1,13 +1,20 @@
 const express = require("express");
-const app = express();
-const cors = require("cors");
-const port =  1337;
-const {trips} = require('../database/trips')
-app.use(express.json());
-app.use(cors());
-app.use(express.static("./client/build"));
-app.use(express.urlencoded({ extended: true }));
+
 const mongoose = require("mongoose");
+const db = require("../database/trips");
+var cors = require('cors');
+const app = express();
+const port =  1337;
+
+
+const {trips} = require('../database/trips')
+app.use(express.static('/../client/build'));
+app.use(express.json());
+
+
+app.use(express.urlencoded({ extended: true }));
+app.use(cors())
+
 
 
 //mongoose connection  
@@ -36,10 +43,10 @@ mongoose
       img : req.body.img
     })
     newTrips.save().then((data)=>{
-      res.status(201).send(data)
+      res.json(data)
     })
     .catch((err)=>{
-      res.send(404).send(err)
+      res.status(404)
     })
   })
 // read data from database
@@ -63,13 +70,16 @@ app.delete("/delete/:id", (req, res) => {
     res.send(result);
   });
 });
+
+
+
 //update data from database 
 app.put("/update",  (req, res) => {
   const price= req.body.price
   const destination = req.body.destination;
   const img = req.body.img;
   const id= req.body._id
-  console.log(req.body._id)
+  
  const test=()=>{
     if (id===undefined){
       return {destination:destination}
@@ -90,12 +100,13 @@ app.put("/update",  (req, res) => {
     console.log(err);
   }else{
     console.log("updated successfully")
-    res.json("Bravo")
+  
   }
  } )
  
 }
 )
+//listening to port 1337
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
