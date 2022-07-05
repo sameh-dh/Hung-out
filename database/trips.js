@@ -8,15 +8,12 @@ const mongoose = require ('mongoose')
 
 
 const UserSchema = new mongoose.Schema({
-    destination: {
-      type: String,
-    },
-    price: {
-      type: Number,
-    },
-    img: {
-      type: String,
-    },
+    destination:String,
+
+    price: Number,
+
+    img: String
+  
   });
 
 

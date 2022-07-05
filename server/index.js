@@ -1,13 +1,16 @@
 const express = require("express");
-const db = require("../database/trips")
+const mongoose = require("mongoose");
+const db = require("../database/trips");
+var cors = require('cors');
 const app = express();
 
-const port =  1337;
+
 const {trips} = require('../database/trips')
+app.use(express.static('/../client/build'));
 app.use(express.json());
-app.use(express.static("./client/build"));
 app.use(express.urlencoded({ extended: true }));
-const mongoose = require("mongoose");
+app.use(cors())
+
 
 
 //mongoose connection  
@@ -33,10 +36,10 @@ mongoose
       img : req.body.img
     })
     newTrips.save().then((data)=>{
-      res.status(201).send(data)
+      res.json(data)
     })
     .catch((err)=>{
-      res.send(404).send(err)
+      res.status(404)
     })
   })
 
@@ -59,7 +62,7 @@ app.delete("/delete/:id", (req, res) => {
     res.send(result);
   });
 });
-
+const port =  1337;
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });

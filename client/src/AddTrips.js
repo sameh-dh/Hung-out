@@ -17,21 +17,21 @@ function AddTrips() {
         setPrice(number)
     }
     const onImgChange = function (event) {
-        let img = event.target.value
-        setImg(img)
+        let image = event.target.value
+        setImg(image)
     }
 
     const saveTrips = function (event) {
         event.preventDefault()
-        let tripsData = {
-            destination,
-            price,
-            img,
-        }
-        axios.post('http://localhost:3000/get', tripsData)
+        axios.post('http://localhost:1337/get', {
+            destination:destination,
+            price:price,
+            img:img
+        })
             .then(response => console.log(response))
             .catch(err => console.log(err))
-        alert('trip add')
+        alert('trip added')
+       
     }
     return (
         <form className="form">
@@ -41,7 +41,8 @@ function AddTrips() {
             <input type="price" onChange={onPriceChange} /><br></br>
             <label >Image</label><br />
             <input type="img" onChange={ onImgChange} /><br></br>
-            <button className="button" onClick={saveTrips} >Submit</button>
+            <button className='button' onClick={saveTrips}>add</button>
+           
         </form>
     )
 
