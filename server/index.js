@@ -1,5 +1,4 @@
 const express = require("express");
-const db = require("../database/trips")
 const app = express();
 
 const port =  1337;
@@ -23,9 +22,12 @@ mongoose
     console.log(err);
   });
 
+//test get
   app.get('/get', (req, res) =>{
     res.json("index")
 });
+
+//add data to database
   app.post('/get',(req,res)=>{
     const newTrips= new trips ({
       destination : req.body.destination,
@@ -39,27 +41,44 @@ mongoose
       res.send(404).send(err)
     })
   })
-
+// read data from database
 app.get("/read", (req, res) => {
-  db.trips.find({}, (err, result) => {
+  trips.find({}, (err, result) => {
     if (err) {
       console.log(err);
     }
     res.send(result);
   });
 })
-
+// delete data from database
 app.delete("/delete/:id", (req, res) => {
   const id = req.params.id;
-  db.trips.findByIdAndRemove(id).exec()
-  db.trips.find({}, (err, result) => {
+ trips.findByIdAndRemove(id).exec()
+  trips.find({}, (err, result) => {
     if (err) {
       console.log(err);
     }
     res.send(result);
   });
 });
-
+//update data from database 
+app.put("/update",  (req, res) => {
+  const price= req.body.price
+  const destination = req.body.destination;
+  const id= req.body._id
+ trips.updateOne({_id:id},{$set:{
+  price:price,
+  destination:destination
+}},(err, res)=>{
+  if (err){
+    console.log(err);
+  }else{
+    console.log("updated successfully")
+  }
+ } )
+ 
+}
+)
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
