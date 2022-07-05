@@ -35,12 +35,12 @@ function AddTrips() {
     }
     return (
         <form className="form">
-            <label >Destination</label><br />
-            <input type="text" onChange={onDestinationChange} /><br />
-            <label>Price</label><br />
-            <input type="price" onChange={onPriceChange} /><br></br>
-            <label >Image</label><br />
-            <input type="img" onChange={ onImgChange} /><br></br>
+            <label ></label><br />
+            <input className='put' type="text" placeholder='destination' onChange={onDestinationChange} /><br />
+            <label></label><br />
+            <input className='put' type="number"   placeholder='price' onChange={onPriceChange} /><br></br>
+            <label ></label><br />
+            <input  className='put' type="img" placeholder='img' onChange={ onImgChange} /><br></br>
             <button className='button' onClick={saveTrips}>add</button>
            
         </form>
