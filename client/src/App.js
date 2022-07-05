@@ -15,7 +15,7 @@ function App() {
   })
   return (
     <div className="App">
-    <Home data={data} />
+    <Home data={data} setData={setData} />
     </div>
   );
 }

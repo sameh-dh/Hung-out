@@ -68,7 +68,7 @@ app.put("/update",  (req, res) => {
   const destination = req.body.destination;
   const img = req.body.img;
   const id= req.body._id
-  console.log(req.body._id)
+  
  const test=()=>{
     if (id===undefined){
       return {destination:destination}
@@ -89,7 +89,7 @@ app.put("/update",  (req, res) => {
     console.log(err);
   }else{
     console.log("updated successfully")
-    res.json("Bravo")
+  
   }
  } )
  
