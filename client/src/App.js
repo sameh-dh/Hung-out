@@ -1,8 +1,10 @@
+import AddTrips from './AddTrips';
 import './App.css'
 // import data from './data';
 import Home from './homePage';
 import React,{useEffect,useState} from 'react';
 import Axios from 'axios';
+
 
 function App() {
   const [data,setData] = useState([])
@@ -16,6 +18,8 @@ function App() {
   return (
     <div className="App">
     <Home data={data} setData={setData} />
+    <Home data={data} />
+    <AddTrips />
     </div>
   );
 }
