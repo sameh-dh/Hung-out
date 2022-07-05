@@ -49,6 +49,17 @@ app.get("/read", (req, res) => {
   });
 })
 
+app.delete("/delete/:id", (req, res) => {
+  const id = req.params.id;
+  db.trips.findByIdAndRemove(id).exec()
+  db.trips.find({}, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
+    res.send(result);
+  });
+});
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
