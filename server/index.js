@@ -61,6 +61,7 @@ app.get("/read", (req, res) => {
 // delete data from database
 app.delete("/delete/:id", (req, res) => {
   const id = req.params.id;
+  trips.findByIdAndRemove(id).exec()
  trips.findByIdAndRemove(id).exec()
   trips.find({}, (err, result) => {
     if (err) {
