@@ -1,9 +1,10 @@
 const express = require("express");
 const app = express();
-
+const cors = require("cors");
 const port =  1337;
 const {trips} = require('../database/trips')
 app.use(express.json());
+app.use(cors());
 app.use(express.static("./client/build"));
 app.use(express.urlencoded({ extended: true }));
 const mongoose = require("mongoose");
