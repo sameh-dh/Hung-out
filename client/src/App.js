@@ -33,9 +33,9 @@ function App() {
   return (
 
     <div className="App">
-    <Home data={data} setData={setData} />
+  
 
-    <AddTrips />
+ 
       <div className="header">
         <nav className="navbar">
           <div className="navBarLink" onClick={onHomeClick}>Home</div>

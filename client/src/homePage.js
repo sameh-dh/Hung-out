@@ -8,7 +8,7 @@ const Home= (props)=>{
     const [_id,setId]=useState("")
     const  updateTrip= ()=>{
         Axios.put('http://localhost:1337/update',{_id:_id,destination:destination,price:price,img:img}).then((response)=>{
-           props.setData(response.data)
+        console.log("updateTrip ")
         })
 
     }
