@@ -5,10 +5,9 @@ const Home= (props)=>{
         <div className="home">
             {
                 props.data.map((element,key)=>{
-                    return <div key={key} className="block">
-                        <img src={element.picture} alt={element.destination} />
+                    return <div key={element._id} className="block">
+                        <img src={element.img} alt={element.destination} />
                         <h1>{element.destination}</h1>
-                        <h1>{element.description}</h1>
                         <h1>{element.price}</h1>
 
 
