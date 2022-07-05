@@ -1,5 +1,4 @@
 const express = require("express");
-const db = require("../database/trips")
 const app = express();
 
 const port =  1337;
@@ -41,7 +40,7 @@ mongoose
   })
 
 app.get("/read", (req, res) => {
-  db.trips.find({}, (err, result) => {
+  trips.find({}, (err, result) => {
     if (err) {
       console.log(err);
     }
@@ -51,8 +50,8 @@ app.get("/read", (req, res) => {
 
 app.delete("/delete/:id", (req, res) => {
   const id = req.params.id;
-  db.trips.findByIdAndRemove(id).exec()
-  db.trips.find({}, (err, result) => {
+  trips.findByIdAndRemove(id).exec()
+  trips.find({}, (err, result) => {
     if (err) {
       console.log(err);
     }
