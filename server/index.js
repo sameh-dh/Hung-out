@@ -130,7 +130,7 @@ app.post('/user/signup', (req, res) => {
   })
 
 })
-//user login
+//user login and check if user exist or not
 app.post('/user/login', (req, res) => {
   if (!req.body.username || !req.body.password) {
     res.json({ success: false, error: "send needed params" })
