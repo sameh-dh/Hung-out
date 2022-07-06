@@ -7,7 +7,9 @@ const app = express();
 const port =  1337;
 
 
-const {trips} = require('../database/trips')
+const {trips} = require('../database/trips');
+const {User} = require('../database/user')
+
 app.use(express.static('/../client/build'));
 app.use(express.json());
 
@@ -61,7 +63,7 @@ app.get("/read", (req, res) => {
 // delete data from database
 app.delete("/delete/:id", (req, res) => {
   const id = req.params.id;
- trips.findByIdAndRemove(id).exec()
+  trips.findByIdAndRemove(id).exec()
   trips.find({}, (err, result) => {
     if (err) {
       console.log(err);
@@ -93,7 +95,7 @@ app.put("/update",  (req, res) => {
   img:img
 
 }},
-//upset will check if the id doesn't already exist it will add new data to the database
+//upsert will check if the id doesn't already exist it will add new data to the database
 {upsert:true},(err, result)=>{
   if (err){
     console.log(err);
@@ -105,6 +107,19 @@ app.put("/update",  (req, res) => {
  
 }
 )
+//creating new user
+app.post('/sign',(req,res)=>{
+  const newUser= new User ({
+    username : req.body.username,
+    password : req.body.password
+  })
+  newUser.save().then((user)=>{
+    res.send(user)
+  })
+  .catch((err)=>{
+    res.send(err)
+  })
+})
 //listening to port 1337
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);

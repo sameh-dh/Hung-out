@@ -1,7 +1,7 @@
 const mongoose = require ('mongoose')
 
 // create schema
-const UserSchema = new mongoose.Schema({
+const tripsSchema = new mongoose.Schema({
 
     destination:String,
 
@@ -13,7 +13,7 @@ const UserSchema = new mongoose.Schema({
   });
 
 
-  const trips = mongoose.model('trips',UserSchema);
+  const trips = mongoose.model('trips',tripsSchema);
 
 
 

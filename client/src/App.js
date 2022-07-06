@@ -28,8 +28,9 @@ function App() {
     Axios.get('http://localhost:1337/read').then(response => {
       setData(response.data)
     })
+})
 
-  })
+
   return (
 
     <div className="App">
