@@ -112,7 +112,7 @@ app.put("/update", (req, res) => {
 
 }
 )
-//creating new user
+//creating new user with hashed password
 app.post('/user/signup', (req, res) => {
   if (!req.body.username || !req.body.password) {
     res.json({ success: false, error: "send needed params" })
@@ -129,6 +129,31 @@ app.post('/user/signup', (req, res) => {
     res.json({ success: false, error: err })
   })
 
+})
+//user login
+app.post('/user/login', (req, res) => {
+  if (!req.body.username || !req.body.password) {
+    res.json({ success: false, error: "send needed params" })
+    return
+  }
+  User.findOne({username : req.body.username})
+  .then((user)=>{
+    if(!user){
+      res.json({success: false,error: "User does not exist"})
+    }
+    else {
+      if(!bcrypt.compareSync(req.body.password,user.password)){
+        res.json({success: false,error: "Wrong password"})
+      }
+      else{
+        const token = JsonWebToken.sign({id: user._id,username: user.username},SECRET_JWT_CODE)
+        res.json({success: true,token: token,})
+      }
+    }
+  })
+  .catch((err)=>{
+    res.json({success: false,error: err})
+  })
 })
 //listening to port 1337
 app.listen(port, () => {
