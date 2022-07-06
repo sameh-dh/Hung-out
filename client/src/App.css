@@ -1,5 +1,6 @@
 html, body {
     height: 100%;
+
   }
   
   .form {
@@ -31,19 +32,40 @@ html, body {
     }
   
   .button:hover {
-    background-color: #2EE59D;
+    background-color: #20ad75;
     box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
     color: rgb(204, 164, 219);
     transform: translateY(-7px);
   }
  .put {
     width: 15%;
-    
-    
     padding: 14px 20px;
     margin: 8px 0;
-   
-    
     border-radius: 4px;
-    cursor: pointer;
  }
+
+
+
+ /* nav bar css */
+ .navbar h1{
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  cursor: pointer;
+  text-align: center;
+  margin-right: 90px;
+ }
+ .navbar {
+margin-bottom: 40px;
+  overflow: hidden;
+  background-color: #333;
+  width: 100%;
+ }
+ .navbar h1:hover{
+  background-color: #ddd;
+  color: black;
+ }
+ 
