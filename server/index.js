@@ -1,13 +1,18 @@
 const express = require("express");
+const bcrypt = require("bcryptjs");
+const JsonWebToken = require("jsonwebtoken")
+const SECRET_JWT_CODE = "psmR3Hu0ihHKfqZymo1m"
 
 const mongoose = require("mongoose");
 const db = require("../database/trips");
 var cors = require('cors');
 const app = express();
-const port =  1337;
+const port = 1337;
 
 
-const {trips} = require('../database/trips')
+const { trips } = require('../database/trips');
+const { User } = require('../database/user')
+
 app.use(express.static('/../client/build'));
 app.use(express.json());
 
@@ -31,24 +36,24 @@ mongoose
   });
 
 //test get
-  app.get('/get', (req, res) =>{
-    res.json("index")
+app.get('/get', (req, res) => {
+  res.json("index")
 });
 
 //add data to database
-  app.post('/get',(req,res)=>{
-    const newTrips= new trips ({
-      destination : req.body.destination,
-      price : req.body.price,
-      img : req.body.img
-    })
-    newTrips.save().then((data)=>{
-      res.json(data)
-    })
-    .catch((err)=>{
+app.post('/get', (req, res) => {
+  const newTrips = new trips({
+    destination: req.body.destination,
+    price: req.body.price,
+    img: req.body.img
+  })
+  newTrips.save().then((data) => {
+    res.json(data)
+  })
+    .catch((err) => {
       res.status(404)
     })
-  })
+})
 // read data from database
 app.get("/read", (req, res) => {
   trips.find({}, (err, result) => {
@@ -73,38 +78,83 @@ app.delete("/delete/:id", (req, res) => {
 
 
 //update data from database 
-app.put("/update",  (req, res) => {
-  const price= req.body.price
+app.put("/update", (req, res) => {
+  const price = req.body.price
   const destination = req.body.destination;
   const img = req.body.img;
-  const id= req.body._id
-  
- const test=()=>{
-    if (id===undefined){
-      return {destination:destination}
-    }else{
-      return {_id:id}
+  const id = req.body._id
+
+  const test = () => {
+    if (id === undefined) {
+      return { destination: destination }
+    } else {
+      return { _id: id }
     }
   }
   //using update one u can choose how to to search for element and then what to set into it 
- trips.updateOne(test(),{$set:{
-  price:price,
-  destination:destination,
-  img:img
+  trips.updateOne(test(), {
+    $set: {
+      price: price,
+      destination: destination,
+      img: img
 
-}},
-//upset will check if the id doesn't already exist it will add new data to the database
-{upsert:true},(err, result)=>{
-  if (err){
-    console.log(err);
-  }else{
-    console.log("updated successfully")
-  
-  }
- } )
- 
+    }
+  },
+    //upsert will check if the id doesn't already exist it will add new data to the database
+    { upsert: true }, (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("updated successfully")
+
+      }
+    })
+
 }
 )
+//creating new user with hashed password
+app.post('/user/signup', (req, res) => {
+  if (!req.body.username || !req.body.password) {
+    res.json({ success: false, error: "send needed params" })
+    return
+  }
+  const newUser = new User({
+    username: req.body.username,
+    password: bcrypt.hashSync(req.body.password, 10),
+  })
+  newUser.save().then((user) => {
+    const token = JsonWebToken.sign({ id: user._id, username: user.username }, SECRET_JWT_CODE)
+    res.json({ success: true, token: token })
+  }).catch((err) => {
+    res.json({ success: false, error: err })
+  })
+
+})
+//user login and check if user exist or not
+app.post('/user/login', (req, res) => {
+  if (!req.body.username || !req.body.password) {
+    res.json({ success: false, error: "send needed params" })
+    return
+  }
+  User.findOne({username : req.body.username})
+  .then((user)=>{
+    if(!user){
+      res.json({success: false,error: "User does not exist"})
+    }
+    else {
+      if(!bcrypt.compareSync(req.body.password,user.password)){
+        res.json({success: false,error: "Wrong password"})
+      }
+      else{
+        const token = JsonWebToken.sign({id: user._id,username: user.username},SECRET_JWT_CODE)
+        res.json({success: true,token: token,})
+      }
+    }
+  })
+  .catch((err)=>{
+    res.json({success: false,error: err})
+  })
+})
 //listening to port 1337
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
