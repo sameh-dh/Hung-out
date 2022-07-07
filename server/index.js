@@ -136,25 +136,61 @@ app.post('/user/login', (req, res) => {
     res.json({ success: false, error: "send needed params" })
     return
   }
-  User.findOne({username : req.body.username})
-  .then((user)=>{
-    if(!user){
-      res.json({success: false,error: "User does not exist"})
-    }
-    else {
-      if(!bcrypt.compareSync(req.body.password,user.password)){
-        res.json({success: false,error: "Wrong password"})
+  User.findOne({ username: req.body.username })
+    .then((user) => {
+      if (!user) {
+        res.json({ success: false, error: "User does not exist" })
       }
-      else{
-        const token = JsonWebToken.sign({id: user._id,username: user.username},SECRET_JWT_CODE)
-        res.json({success: true,token: token,})
+      else {
+        if (!bcrypt.compareSync(req.body.password, user.password)) {
+          res.json({ success: false, error: "Wrong password" })
+        }
+        else {
+          const token = JsonWebToken.sign({ id: user._id, username: user.username }, SECRET_JWT_CODE)
+          res.json({ success: true, token: token, })
+        }
       }
-    }
-  })
-  .catch((err)=>{
-    res.json({success: false,error: err})
-  })
+    })
+    .catch((err) => {
+      res.json({ success: false, error: err })
+    })
 })
+//  check if the token is valid
+// function fetchUserByToken(req) {
+//   return new Promise((resolve, reject) => {
+//     if (req.headers && req.headers.authorization) {
+//       let authorization = req.headers.authorization
+//       let decoded
+//       try {
+//         decoded = JsonWebToken.verify(authorization, SECRET_JWT_CODE)
+//       }
+//       catch (e) {
+//         reject("Token not valid")
+//         return
+//       }
+//       let userId = decoded.id
+//       User.findOne({ _id: userId })
+//         .then((user) => {
+//           resolve(user)
+//         })
+//         .catch((err) => {
+//           reject("Token error")
+//         })
+//     }
+//     else {
+//       reject("No token found")
+//     }
+//   })
+// }
+// app.get("/token",(req,res)=>{
+//   fetchUserByToken(req)
+//   .then((user)=>{
+//     res.json(user)
+//   })
+//   .catch((err)=>{
+//     res.status(401).json({ message: 'Invalid token' })
+//   })
+// })
 //listening to port 1337
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);

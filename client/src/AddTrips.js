@@ -24,26 +24,28 @@ function AddTrips() {
     const saveTrips = function (event) {
         event.preventDefault()
         axios.post('http://localhost:1337/get', {
-            destination:destination,
-            price:price,
-            img:img
+            destination: destination,
+            price: price,
+            img: img
         })
             .then(response => console.log(response))
             .catch(err => console.log(err))
         alert('trip added')
-       
+
     }
     return (
+
         <form className="form">
-            <label ></label><br />
-            <input className='put' type="text" placeholder='destination' onChange={onDestinationChange} /><br />
-            <label></label><br />
-            <input className='put' type="number"   placeholder='price' onChange={onPriceChange} /><br></br>
-            <label ></label><br />
-            <input  className='put' type="img" placeholder='img' onChange={ onImgChange} /><br></br>
-            <button className='button' onClick={saveTrips}>add</button>
-           
+            <label >Destination</label><br />
+            <input type="text" placeholder='enter your destination' onChange={onDestinationChange} /><br />
+            <label>Price</label><br />
+            <input  type="number" placeholder='choose price' onChange={onPriceChange} /><br></br>
+            <label >Image</label><br />
+            <input  type="img" placeholder='choose your image' onChange={onImgChange} /><br></br>
+            <button className='button' onClick={saveTrips}><i class="fa fa-plus" aria-hidden="true"></i>&nbsp; Add</button>
+
         </form>
+
     )
 
 }
