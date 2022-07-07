@@ -47,7 +47,7 @@ function App() {
 
     <div className="App">
   
-
+<img className="background" src="https://img.freepik.com/free-vector/hand-painted-watercolor-pastel-sky-background_23-2148907305.jpg?w=2000" alt="img"></img>
  
       <div className="header">
         <nav className="navbar">
@@ -55,8 +55,11 @@ function App() {
           <div className="navBarLink" onClick={onHomeClick}><h1>Home</h1></div>
           {/* add trips page button */}
           <div className="navBarLink" onClick={onAddTripsClick}><h1>Add Trips</h1></div>
+          {/* blog side */}
+          <div className="navBarLink"><h1>blog</h1></div>
           {/* sign up âge button */}
-          <div className="navBarLink" onClick={onSignUpClick}><h1>Sign Up</h1></div>
+          <div className="navBarLink signUp" onClick={onSignUpClick}><h1>Sign Up</h1></div>
+          
         </nav>
       </div>
       {/* home page*/}
