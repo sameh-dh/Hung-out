@@ -1,37 +1,167 @@
-html, body {
+html {
   position: relative;
+  font-size: 80%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 20rem;
+} 
 
-    height: 100%;
-background-color:#EDE4E3;
-  }
-  
-  .form {
-    position: relative;
+body {
+  position: relative;
+  background-image: url("https://images.travelandleisureindia.in/wp-content/uploads/2021/01/14101943/New-Featured-1-3.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+ 
+  padding: 40px;
+  font-family: Arial;
+  text-align: center;
+  vertical-align: top;
+  position: relative;
+}
+/* navbar */
+.navbar {
+  position: relative;
+  background: #0a0a0aad;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  color: hsl(0, 0%, 100%);
+  padding: 2rem 25%;
+  top: 0;
+  left: 0;
+  right: 0;
+ 
+}
 
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-.background{
-  position: absolute;
-  opacity: 0.3;
-  width: 100%;
-height:max-content;
+.navBarLink {
+  position: relative;
+  cursor: pointer;
+}
+
+.navBarLink:hover {
+  position: relative;
+  color:rgba(255, 255, 0, 0.801);
 }
 
 
-.button {
+
+#logo {
+  position: relative;
+  color: rgba(255, 255, 0, 0.801);
+  font-size: 2.5rem;
+  font-weight: bolder;
+
+}
+/* add page and login page */
+.form {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.459);
+  text-align: center;
+  padding-top: 150px;
+}
+
+label {
+  position: relative;
+  color: black;
+  font-size: large;
+  margin-right: auto;
+
+}
+input {
+  position: relative;
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* sign up page */
+.register{
+  position: relative;
+  background-color:  rgba(255, 255, 255, 0.459) ;
+  color: rgba(0, 0, 0, 0.699);
+}
+/* home page */
+.image{
+  position: relative;
+  width: 400px;
+  height: 300px;
+ }
+ .background{
+ position: absolute;
+width:100%;
+height:100%;
+margin: 0;
+padding: 0;
+ }
+ .container-box{
+  position: relative;
+  background-color: #ffffffc1;
+  width: 400px;
+  margin-top: 0;
+  text-align: center;
+  padding-bottom: 20px;
+ 
+   }
+   .container-box h1{
+    position: relative;
+    margin-top: 0;
+    text-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    font-family: Lucida Sans;
+    font-size: 30px;
+   }
+   .container-boxs  {
+    position: relative;
+    float: left;
+    margin-right: 20px;
+    margin-left: 30px;
+    box-shadow: 0 11px 15px -7px rgb(0 0 0 / 20%), 0 24px 38px 3px rgb(0 0 0 / 14%), 0 9px 46px 8px rgb(0 0 0 / 12%); 
+ margin-bottom: 30px;
+  
+  } 
+  .container-boxs:hover{
+  position: relative;
+   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  cursor: pointer;
+  }
+
+/* home page title */
+.home-page {
+  position: relative;
+  color:rgba(29, 29, 27, 0.575);
+  text-align: center;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: x-large;
+  padding-bottom: 10px;
+  margin-bottom: 0;
+} 
+
+span {
+  position: relative;
+  color: rgba(10, 10, 10, 0.356);
+
+  font-size: x-large;
+}
+
+
+ /* button */
+ .button {
   position: relative;
     width: 140px;
     height: 45px;
-    font-family: 'Roboto', sans-serif;
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2.5px;
     font-weight: 500;
-    color: #000;
-    background-color: rgb(182, 140, 187);
+    color: white;
+    background-color: rgb(6, 1, 6);
     border: none;
     border-radius: 45px;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
@@ -39,131 +169,22 @@ height:max-content;
     cursor: pointer;
     outline: none;
     margin-left: 20px;
+    font-family: sans-serif;
     }
   
   .button:hover {
     position: relative;
 
-    background-color: #A76286;
+    background-color: #361d2a;
     box-shadow: 0px 15px 20px #D3B1C2;
     color: white;
     transform: translateY(-7px);
   }
- .put {
-  position: relative;
 
-    width: 15%;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border-radius: 4px;
- }
-
-
-
- /* nav bar css */
- .navbar h1{
-  position: relative;
-
- float:left;
-  color: #f2f2f2;
-  padding-left: 10px;
-  text-decoration: none;
-  font-size: 20px;
-  padding-right: 100px;
-  text-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-  height: 70px;
-  padding-top: 30px;
-  margin-top: 0;
- 
-
- }
- .navbar {
-  position: relative;
-
-margin-bottom: 40px;
-  overflow: hidden;
-  background-image :linear-gradient(to top, #9290bb 0%, #8989ba 52%, #8989ba 100%); 
-   width: 100%;
-  height: 90px;
-  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
- }
- .navbar h1:hover{
-  position: relative;
-
- text-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
-      cursor: pointer;
-
- }
- .navBarLink.signUp{
-  position: relative;
-
-  margin-left: 80%;
-  margin-right: 0;
- }
-
- .navbar .text-container:hover{
-  position: relative;
-
- text-align: center;
- box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-   background-image :linear-gradient(to top, #a7a6cb 0%, #8989ba 52%, #9898c9 100%); 
- height:  80px;
- padding-left:50px;
-width:fit-content;
-padding-top:    10px;
-
- }
- /*home page*/
- .image{
-  position: relative;
-
-  width: 400px;
-  height: 300px;
-border-top-left-radius: 200px;
-border-top-right-radius: 200px;
-
- }
-
- .container-box{
-  position: relative;
-
-  background-color: #f6f4f1;
-  width: 400px;
-margin-top: 0;
-text-align: center;
-padding-bottom: 20px;
-border-radius: 100px;
-border-top-left-radius: 200px;
-border-top-right-radius: 200px;
- }
- .container-box h1{
   
-  position: relative;
-
-  margin-top: 0;
-  text-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  font-family: Lucida Sans;
- }
- .container-boxs  {
-  position: relative;
-  float: left;
-  margin-right: 20px;
-  margin-left: 30px;
-  box-shadow: 0 11px 15px -7px rgb(0 0 0 / 20%), 0 24px 38px 3px rgb(0 0 0 / 14%), 0 9px 46px 8px rgb(0 0 0 / 12%); 
- border-radius: 200px;
- margin-bottom: 20px;
-
-} 
-.container-boxs:hover{
-  position: relative;
-
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-   
-   cursor: pointer;
-}
- .btn-homepage{
-  position: relative;
-
-  float: left;
-
- }
+  .btn-homepage{
+    position: relative;
+  
+    float: left;
+  
+   }

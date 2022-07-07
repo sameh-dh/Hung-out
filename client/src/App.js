@@ -45,22 +45,21 @@ function App() {
 
   return (
 
-    <div className="App">
-  
-<img className="background" src="https://img.freepik.com/free-vector/hand-painted-watercolor-pastel-sky-background_23-2148907305.jpg?w=2000" alt="img"></img>
- 
+    <div >
+     {/* <img src="https://images.travelandleisureindia.in/wp-content/uploads/2021/01/14101943/New-Featured-1-3.jpg" alt="imge" className='background'></img> */}
+
       <div className="header">
+       
         <nav className="navbar">
           {/* home page button */}
-          <div className="navBarLink" onClick={onHomeClick}><h1>Home</h1></div>
+          <i class="fa-solid fa-person-walking-luggage" id='logo'></i>
+          <div className="navBarLink" onClick={onHomeClick}><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Home</div>
           {/* add trips page button */}
-          <div className="navBarLink" onClick={onAddTripsClick}><h1>Add Trips</h1></div>
-          {/* blog side */}
-          <div className="navBarLink"><h1>blog</h1></div>
+          <div className="navBarLink" onClick={onAddTripsClick}><i class="fa fa-pencil fa-fw" aria-hidden="true"></i>&nbsp;Add Trips</div>
           {/* sign up âge button */}
-          <div className="navBarLink signUp" onClick={onSignUpClick}><h1>Sign Up</h1></div>
-          
+          <div className="navBarLink" onClick={onSignUpClick}><i class="fa fa-user fa-fw"></i>&nbsp;Login</div>
         </nav>
+       
       </div>
       {/* home page*/}
       {showHome && <Home data={data} setData={setData} />}

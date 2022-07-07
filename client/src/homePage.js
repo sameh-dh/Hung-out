@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import Axios from "axios";
 
 const Home = (props) => {
@@ -15,7 +15,7 @@ const Home = (props) => {
       img: img,
     }).then((response) => {
       console.log("trip updated successfully ");
-  
+
     });
   }
 
@@ -46,23 +46,31 @@ return( <div >
     }
   }
   
+
+ 
   //delete trip 
   const deletTrip = (id) => {
     Axios.delete(`http://localhost:1337/delete/${id}`)
   };
+
+
   return (
     <div className="home">
                 
-
+                <div className="home-page">
+          <h1 className="home-title"><span>Welcome to </span>&nbsp; HUNG-OUT</h1><br />
+        </div>
+     
       {/* show trips */}
       {props.data.map((element) => {
         
         return (
-       
+        
+        
           <div key={element._id}  className="container-boxs" >
               
               <div className="container-box">
-            <img src={element.img}  title={element.destination}  alt={element.destination}className="image" />
+            <img src={element.img}  title={element.destination}  alt={element.destination} className="image" />
            
           
             <h1>{element.destination}</h1>
@@ -75,11 +83,14 @@ return( <div >
               return  deletTrip(element._id);
               }}>Delete</button>
             </div> 
-           
-          </div>
-        );
-      })}
+      
+       
+  
     </div>
-  );
+    )})}
+ 
+ </div>
+
+)
 };
 export default Home;
