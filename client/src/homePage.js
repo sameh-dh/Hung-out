@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import Axios from "axios";
 
 const Home = (props) => {
@@ -14,9 +14,9 @@ const Home = (props) => {
       img: img,
     }).then((response) => {
       console.log("trip updated successfully ");
-  
+
     });
-  
+
   };
   //delete trip 
   const deletTrip = (id) => {
@@ -24,24 +24,29 @@ const Home = (props) => {
   };
   return (
     <div className="home">
+      <div className="home-page">
+        <h1 className="home-title"><span>Welcome to </span>&nbsp; HUNG-OUT</h1><br />
+      </div>
       {/* show trips */}
       {props.data.map((element) => {
         return (
           <div key={element._id} className="block">
-            
-            <img src={element.img} alt={element.destination} />
-            <h1>{element.destination}</h1>
-            <h1>{element.price}  </h1>
+
+            <img className="img" src={element.img} alt={element.destination} />
+            <div className="destination">
+              <h1>{element.destination}</h1>
+              <h1>{element.price} TND  </h1>
+            </div>
             {/* update trip */}
             <input
               className="put"
               type="text"
               placeholder="destination"
-           
+
               onChange={(e) => {
                 setDestination(e.target.value);
               }}
-            ></input>
+            ></input><br />
             <input
               className="put"
               type="number"
@@ -49,7 +54,7 @@ const Home = (props) => {
               onChange={(e) => {
                 setPrice(e.target.value);
               }}
-            ></input>
+            ></input><br />
             <input
               className="put"
               type="text"
@@ -57,21 +62,21 @@ const Home = (props) => {
               onChange={(e) => {
                 setImg(e.target.value);
               }}
-            ></input>
+            ></input><br />
             <button
-              className="button"
+              className="update"
               onClick={() => {
                 return updateTrip(element._id);
-              }}>
+              }}><i class="fas fa-edit"></i>&nbsp;
               Update
             </button>
-{/* delete trip */}
+            {/* delete trip */}
             <button
-              className="button"
+              className="delete"
               onClick={() => {
-              return  deletTrip(element._id);
+                return deletTrip(element._id);
               }}
-            >
+            ><i class="fa fa-trash" aria-hidden="true"></i>&nbsp;
               Delete
             </button>
           </div>

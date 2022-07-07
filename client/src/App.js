@@ -45,18 +45,19 @@ function App() {
 
   return (
 
-    <div className="App">
+    <div >
   
 
  
       <div className="header">
         <nav className="navbar">
           {/* home page button */}
-          <div className="navBarLink" onClick={onHomeClick}><h1>Home</h1></div>
+          <i class="fa-solid fa-person-walking-luggage" id='logo'></i>
+          <div className="navBarLink" onClick={onHomeClick}><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Home</div>
           {/* add trips page button */}
-          <div className="navBarLink" onClick={onAddTripsClick}><h1>Add Trips</h1></div>
+          <div className="navBarLink" onClick={onAddTripsClick}><i class="fa fa-pencil fa-fw" aria-hidden="true"></i>&nbsp;Add Trips</div>
           {/* sign up âge button */}
-          <div className="navBarLink" onClick={onSignUpClick}><h1>Sign Up</h1></div>
+          <div className="navBarLink" onClick={onSignUpClick}><i class="fa fa-user fa-fw"></i>&nbsp;Login</div>
         </nav>
       </div>
       {/* home page*/}
