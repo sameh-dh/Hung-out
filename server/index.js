@@ -155,7 +155,7 @@ app.post('/user/login', (req, res) => {
       res.json({ success: false, error: err })
     })
 })
-//  check if the token is valid
+ //check if the token is valid
 // function fetchUserByToken(req) {
 //   return new Promise((resolve, reject) => {
 //     if (req.headers && req.headers.authorization) {
@@ -186,6 +186,7 @@ app.post('/user/login', (req, res) => {
 //   fetchUserByToken(req)
 //   .then((user)=>{
 //     res.json(user)
+//     console.log(user);
 //   })
 //   .catch((err)=>{
 //     res.status(401).json({ message: 'Invalid token' })

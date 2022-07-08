@@ -56,7 +56,7 @@ function App() {
           <div className="navBarLink" onClick={onHomeClick}><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Home</div>
           {/* add trips page button */}
           <div className="navBarLink" onClick={onAddTripsClick}><i class="fa fa-pencil fa-fw" aria-hidden="true"></i>&nbsp;Add Trips</div>
-          {/* sign up âge button */}
+          {/* sign up page button */}
           <div className="navBarLink" onClick={onSignUpClick}><i class="fa fa-user fa-fw"></i>&nbsp;Login</div>
         </nav>
        
