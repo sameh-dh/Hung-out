@@ -20,34 +20,34 @@ const Home = (props) => {
   }
 
   //show input update
-  const showUp=(element)=>{
+  const showUp = (element) => {
     if (showUpdate) {
-return( <div >
-  <input className="put" type="text" placeholder="destination" defaultValue={element.destination} onChange={(e) => {
-    setDestination(e.target.value);
-  }}></input>
-<input className="put" type="number"placeholder="price" defaultValue={element.price} onChange={(e) => {
-    setPrice(e.target.value);
-  }}></input>
-<input className="put" type="text" placeholder="img" defaultValue={element.img} onChange={(e) => {
-    setImg(e.target.value);
-  }}></input>
-<button className="button" onClick={() => {
-  setShowUpdate(false);
-    return updateTrip(element._id);
-  }}>Update</button>
-</div>
-)
-    }else {
-      
+      return (<div >
+        <input className="put" type="text" placeholder="destination" defaultValue={element.destination} onChange={(e) => {
+          setDestination(e.target.value);
+        }}></input>
+        <input className="put" type="number" placeholder="price" defaultValue={element.price} onChange={(e) => {
+          setPrice(e.target.value);
+        }}></input>
+        <input className="put" type="text" placeholder="img" defaultValue={element.img} onChange={(e) => {
+          setImg(e.target.value);
+        }}></input>
+        <button className="button" onClick={() => {
+          setShowUpdate(false);
+          return updateTrip(element._id);
+        }}>Update</button>
+      </div>
+      )
+    } else {
+
       return <div className="btn-homepage">
         <button className="button" onClick={() => setShowUpdate(true)}>Update content</button>
-        </div>
+      </div>
     }
   }
-  
 
- 
+
+
   //delete trip 
   const deletTrip = (id) => {
     Axios.delete(`http://localhost:1337/delete/${id}`)
@@ -56,41 +56,42 @@ return( <div >
 
   return (
     <div className="home">
-                
-                <div className="home-page">
-          <h1 className="home-title"><span>Welcome to </span>&nbsp; HUNG-OUT</h1><br />
-        </div>
-     
+
+      <div className="home-page">
+        <h1 className="home-title"><span>Welcome to </span>&nbsp; HUNG-OUT</h1><br />
+      </div>
+
       {/* show trips */}
       {props.data.map((element) => {
-        
-        return (
-        
-        
-          <div key={element._id}  className="container-boxs" >
-              
-              <div className="container-box">
-            <img src={element.img}  title={element.destination}  alt={element.destination} className="image" />
-           
-          
-            <h1>{element.destination}</h1>
-            <h1>{element.price} DT </h1>
-            {/* update trip */}
-           
-            {showUp(element)}
-            {/* delete trip */}
-            <button className="button" onClick={() => {
-              return  deletTrip(element._id);
-              }}>Delete</button>
-            </div> 
-      
-       
-  
-    </div>
-    )})}
- 
- </div>
 
-)
+        return (
+
+
+          <div key={element._id} className="container-boxs" >
+
+            <div className="container-box">
+              <img src={element.img} title={element.destination} alt={element.destination} className="image" />
+
+
+              <h1>{element.destination}</h1>
+              <h1>{element.price} DT </h1>
+              {/* update trip */}
+
+              {showUp(element)}
+              {/* delete trip */}
+              <button className="button" onClick={() => {
+                return deletTrip(element._id);
+              }}>Delete</button>
+            </div>
+
+
+
+          </div>
+        )
+      })}
+
+    </div>
+
+  )
 };
 export default Home;

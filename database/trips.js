@@ -1,20 +1,20 @@
-const mongoose = require ('mongoose')
+const mongoose = require('mongoose')
 
 // create schema
 const tripsSchema = new mongoose.Schema({
 
-    destination:String,
+  destination: String,
 
-    price: Number,
+  price: Number,
 
-    img: String
-  
-
-  });
+  img: String
 
 
-  const trips = mongoose.model('trips',tripsSchema);
+});
+
+
+const trips = mongoose.model('trips', tripsSchema);
 
 
 
-  module.exports.trips = trips;
+module.exports.trips = trips;

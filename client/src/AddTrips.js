@@ -39,9 +39,9 @@ function AddTrips() {
             <label >Destination</label><br />
             <input type="text" placeholder='enter your destination' onChange={onDestinationChange} /><br />
             <label>Price</label><br />
-            <input  type="number" placeholder='choose price' onChange={onPriceChange} /><br></br>
+            <input type="number" placeholder='choose price' onChange={onPriceChange} /><br></br>
             <label >Image</label><br />
-            <input  type="img" placeholder='choose your image' onChange={onImgChange} /><br></br>
+            <input type="img" placeholder='choose your image' onChange={onImgChange} /><br></br>
             <button className='button' onClick={saveTrips}><i class="fa fa-plus" aria-hidden="true"></i>&nbsp; Add</button>
 
         </form>

@@ -18,21 +18,21 @@ function App() {
 
 
   const onHomeClick = function () {
-    setShowHome( true)
-    setShowAddTrips( false)
-    setSignUp( false)
+    setShowHome(true)
+    setShowAddTrips(false)
+    setSignUp(false)
     setLogin(false)
   }
   const onAddTripsClick = function () {
     setShowHome(false)
     setShowAddTrips(true)
-    setSignUp( false)
+    setSignUp(false)
     setLogin(false)
   }
   const onSignUpClick = function () {
-    setShowHome( false)
-    setShowAddTrips( false )
-    setSignUp( true )
+    setShowHome(false)
+    setShowAddTrips(false)
+    setSignUp(true)
     setLogin(false)
   }
   const onLoginClick = function () {
@@ -49,16 +49,16 @@ function App() {
     Axios.get('http://localhost:1337/read').then(response => {
       setData(response.data)
     })
-})
+  })
 
 
   return (
 
     <div >
-     {/* <img src="https://images.travelandleisureindia.in/wp-content/uploads/2021/01/14101943/New-Featured-1-3.jpg" alt="imge" className='background'></img> */}
+      {/* <img src="https://images.travelandleisureindia.in/wp-content/uploads/2021/01/14101943/New-Featured-1-3.jpg" alt="imge" className='background'></img> */}
 
       <div className="header">
-       
+
         <nav className="navbar">
           {/* home page button */}
           <i className="fa-solid fa-person-walking-luggage" id='logo'></i>
@@ -68,18 +68,18 @@ function App() {
           {/* sign up âge button */}
           <div className="navBarLink" onClick={onSignUpClick}><i className="fa fa-user fa-fw"></i>&nbsp;SignUp</div>
           {/* login */}
-          <div className="navBarLink" onClick={()=>{return onLoginClick()}}><i className="fa fa-user fa-fw"></i>&nbsp;Login</div>
+          <div className="navBarLink" onClick={() => { return onLoginClick() }}><i className="fa fa-user fa-fw"></i>&nbsp;Login</div>
         </nav>
-       
+
       </div>
       {/* home page*/}
       {showHome && <Home data={data} setData={setData} />}
-{/* add trips page */}
+      {/* add trips page */}
       {showAddTrips && <AddTrips />}
-    {/* sign up page */}
-    {signUp && <Register />}
-{/* log in */}
-{login && <Signin data={data} />}
+      {/* sign up page */}
+      {signUp && <Register />}
+      {/* log in */}
+      {login && <Signin data={data} />}
     </div>
   )
 }
