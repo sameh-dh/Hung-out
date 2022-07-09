@@ -210,25 +210,12 @@ span {
   margin-left:50%
 }
 
-.register input {
-  -webkit-border-radius: 10px 10px 10px 10px;
-  border-radius: 10px 10px 10px 10px;
-  background: #fff;
-  padding: 30px;
-  width: 90%;
-  max-width: 450px;
-  position: relative;
-  padding: 0px;
-  -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
-  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
-  text-align: center;
 
-}
 
 .register input {
-  background-color: #f6f6f6;
+  background-color: #fffffff4;
   border: none;
-  color: #0d0d0d;
+  color: rgb(14, 12, 12);
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -243,11 +230,14 @@ span {
   transition: all 0.5s ease-in-out;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
+
+  margin-bottom:30px ;
+
 }
 
 .register input:focus {
   background-color: #fff;
-  border-bottom: 3px solid #8989ba;
+  border-bottom: 3px solid #0c0e04;
 
 
 }
@@ -259,5 +249,5 @@ span {
   border-top: 0px;
 }
 h3{
-  margin-top:100px
+  margin-top:200px
 }

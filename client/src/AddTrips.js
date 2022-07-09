@@ -35,7 +35,7 @@ function AddTrips() {
     }
     return (
 
-        <form className="form">
+        <form className="register">
             <label >Destination</label><br />
             <input type="text" placeholder='enter your destination' onChange={onDestinationChange} /><br />
             <label>Price</label><br />
