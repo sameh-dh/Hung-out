@@ -23,18 +23,18 @@ const Home = (props) => {
   const showUp=(element)=>{
     if (showUpdate) {
 return( <div >
-  <input className="put" type="text" placeholder="destination" onChange={(e) => {
+  <input className="put" type="text" placeholder="destination" defaultValue={element.destination} onChange={(e) => {
     setDestination(e.target.value);
   }}></input>
-<input className="put" type="number"placeholder="price" onChange={(e) => {
+<input className="put" type="number"placeholder="price" defaultValue={element.price} onChange={(e) => {
     setPrice(e.target.value);
   }}></input>
-<input className="put" type="text" placeholder="img" onChange={(e) => {
+<input className="put" type="text" placeholder="img" defaultValue={element.img} onChange={(e) => {
     setImg(e.target.value);
   }}></input>
 <button className="button" onClick={() => {
   setShowUpdate(false);
-    return updateTrip(element);
+    return updateTrip(element._id);
   }}>Update</button>
 </div>
 )
@@ -77,7 +77,7 @@ return( <div >
             <h1>{element.price} DT </h1>
             {/* update trip */}
            
-            {showUp(element._id)}
+            {showUp(element)}
             {/* delete trip */}
             <button className="button" onClick={() => {
               return  deletTrip(element._id);

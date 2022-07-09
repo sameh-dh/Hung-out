@@ -6,6 +6,7 @@ import Home from './homePage';
 import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import Register from './signUp';
+import Signin from './login';
 
 
 function App() {
@@ -13,26 +14,34 @@ function App() {
   const [showHome, setShowHome] = useState(true);
   const [showAddTrips, setShowAddTrips] = useState(false);
   const [signUp, setSignUp] = useState(false)
+  const [login, setLogin] = useState(false)
+
 
   const onHomeClick = function () {
     setShowHome( true)
     setShowAddTrips( false)
     setSignUp( false)
-
+    setLogin(false)
   }
   const onAddTripsClick = function () {
     setShowHome(false)
     setShowAddTrips(true)
     setSignUp( false)
-
+    setLogin(false)
   }
   const onSignUpClick = function () {
     setShowHome( false)
     setShowAddTrips( false )
     setSignUp( true )
+    setLogin(false)
+  }
+  const onLoginClick = function () {
+    setShowHome(false)
+    setShowAddTrips(false)
+    setSignUp(false)
+    setLogin(true)
 
   }
-
 
   //get data from the database
   const [data, setData] = useState([])
@@ -52,12 +61,14 @@ function App() {
        
         <nav className="navbar">
           {/* home page button */}
-          <i class="fa-solid fa-person-walking-luggage" id='logo'></i>
-          <div className="navBarLink" onClick={onHomeClick}><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Home</div>
+          <i className="fa-solid fa-person-walking-luggage" id='logo'></i>
+          <div className="navBarLink" onClick={onHomeClick}><i className="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Home</div>
           {/* add trips page button */}
-          <div className="navBarLink" onClick={onAddTripsClick}><i class="fa fa-pencil fa-fw" aria-hidden="true"></i>&nbsp;Add Trips</div>
+          <div className="navBarLink" onClick={onAddTripsClick}><i className="fa fa-pencil fa-fw" aria-hidden="true"></i>&nbsp;Add Trips</div>
           {/* sign up âge button */}
-          <div className="navBarLink" onClick={onSignUpClick}><i class="fa fa-user fa-fw"></i>&nbsp;Login</div>
+          <div className="navBarLink" onClick={onSignUpClick}><i className="fa fa-user fa-fw"></i>&nbsp;SignUp</div>
+          {/* login */}
+          <div className="navBarLink" onClick={()=>{return onLoginClick()}}><i className="fa fa-user fa-fw"></i>&nbsp;Login</div>
         </nav>
        
       </div>
@@ -67,7 +78,8 @@ function App() {
       {showAddTrips && <AddTrips />}
     {/* sign up page */}
     {signUp && <Register />}
-
+{/* log in */}
+{login && <Signin data={data} />}
     </div>
   )
 }
