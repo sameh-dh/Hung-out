@@ -201,9 +201,13 @@ span {
 
 /* sign up page */
 .register {
+  padding:100px;
   position: relative;
   align-items: center;
-  margin-left: 30%
+  height:500px;
+  border-radius:300px;
+  width:600px;
+  margin-left:50%
 }
 
 .register input {
@@ -253,4 +257,7 @@ span {
   color: #cccccc;
   border-bottom: 3px solid #8989ba;
   border-top: 0px;
+}
+h3{
+  margin-top:100px
 }
