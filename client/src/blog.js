@@ -60,12 +60,16 @@ function Blog() {
         <div className="blog-container" >
 
             {blogData.map((item, index) => {
-                return <div className="blog-item" key={index}>
-                    <h1>{item.user}</h1>
+                return <div className="blog-item" key={index} >
+                   
+                    <img src={item.userImage} alt={item.user}  className="user-image"/>
+                    <h1 className="user-name">{item.user}</h1>
+                    <div className='user-block'>
                     <h2>{item.blog}</h2>
                     {picture(item)}
                     {/* like button */}
                     {like(item,index)}
+                    </div>
                 </div>;
             }
             )}

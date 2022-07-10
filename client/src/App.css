@@ -263,7 +263,6 @@ h3{
   position: relative;
   background-color: rgba(255, 255, 255, 0.9);
   color: rgba(0, 0, 0, 0.699);
-
 }
 .blog-item{
 border :solid 1px #cccccc;
@@ -271,8 +270,11 @@ border-radius: 50px;
 width: 1000px;
 margin-left: 130px;
 margin-bottom: 20px;
-padding :20px
+padding :20px;
+box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+
 }
+
 
 /* inputs blog page */
 .blog-input{
@@ -280,7 +282,10 @@ padding :20px
 }
 .blog-add input{
   text-align:center;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+border: none;
 }
+
 /* blog image */
 .image-blog{
   position: relative;
@@ -312,4 +317,26 @@ padding :20px
 }
 .btn-secondary .fa {
 	  margin-right: 5px;
+}
+/* user image */
+.user-image{
+  width:100px;
+  border-radius: 50%;
+  height: 100px;
+  align-items: left;
+  display:flex;
+  text-align: left;
+  float: left;
+}
+/* user name */
+.user-name{
+  width:90px;
+  border-radius: 50%;
+  align-items: left;
+  display:flex;
+  text-align: left;
+  float: left;
+}
+.user-block {
+  margin-top: 120px;
 }
