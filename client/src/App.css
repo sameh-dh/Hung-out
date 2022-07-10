@@ -59,12 +59,6 @@ body {
 }
 
 /* add page and login page */
-.form {
-  position: relative;
-  background-color: rgba(255, 255, 255, 0.459);
-  text-align: center;
-  padding-top: 150px;
-}
 
 label {
   position: relative;
@@ -86,17 +80,17 @@ input {
 }
 
 /* sign up page */
-.register {
-  position: relative;
-  background-color: rgba(255, 255, 255, 0.459);
-  color: rgba(0, 0, 0, 0.699);
-}
+
 
 /* home page */
 .image {
   position: relative;
   width: 400px;
   height: 300px;
+  border-top-left-radius: 80px;
+  border-top-right-radius: 15px;
+
+
 }
 
 .background {
@@ -114,6 +108,7 @@ input {
   margin-top: 0;
   text-align: center;
   padding-bottom: 20px;
+  border-radius: 80px;
 
 }
 
@@ -132,6 +127,8 @@ input {
   margin-left: 30px;
   box-shadow: 0 11px 15px -7px rgb(0 0 0 / 20%), 0 24px 38px 3px rgb(0 0 0 / 14%), 0 9px 46px 8px rgb(0 0 0 / 12%);
   margin-bottom: 30px;
+  border-radius: 80px;
+
 
 }
 
@@ -207,8 +204,12 @@ span {
   height:500px;
   border-radius:300px;
   width:600px;
-  margin-left:50%
+  margin-left:50%;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.459);
+  color: rgba(0, 0, 0, 0.699);
 }
+
 
 
 
@@ -250,4 +251,19 @@ span {
 }
 h3{
   margin-top:200px
+}
+
+/* blogs page */
+.blog-container{
+  padding:100px;
+  position: relative;
+  align-items: center;
+  border-radius:300px;
+  width:600px;
+  height: fit-content;
+  margin-left:50%;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.459);
+  color: rgba(0, 0, 0, 0.699);
+
 }

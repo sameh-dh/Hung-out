@@ -5,43 +5,32 @@ import './App.css'
 import Home from './homePage';
 import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
-import Register from './signUp';
-import Signin from './login';
+import Blog from './blog';
 
 
 function App() {
 
   const [showHome, setShowHome] = useState(true);
   const [showAddTrips, setShowAddTrips] = useState(false);
-  const [signUp, setSignUp] = useState(false)
-  const [login, setLogin] = useState(false)
+  const [blog, setBlog] = useState(false)
 
 
   const onHomeClick = function () {
     setShowHome(true)
     setShowAddTrips(false)
-    setSignUp(false)
-    setLogin(false)
+    setBlog(false)
   }
   const onAddTripsClick = function () {
     setShowHome(false)
     setShowAddTrips(true)
-    setSignUp(false)
-    setLogin(false)
+    setBlog(false)
   }
-  const onSignUpClick = function () {
+  const onBlogClick = function () {
     setShowHome(false)
     setShowAddTrips(false)
-    setSignUp(true)
-    setLogin(false)
+    setBlog(true)
   }
-  const onLoginClick = function () {
-    setShowHome(false)
-    setShowAddTrips(false)
-    setSignUp(false)
-    setLogin(true)
-
-  }
+ 
 
   //get data from the database
   const [data, setData] = useState([])
@@ -65,10 +54,9 @@ function App() {
           <div className="navBarLink" onClick={onHomeClick}><i className="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Home</div>
           {/* add trips page button */}
           <div className="navBarLink" onClick={onAddTripsClick}><i className="fa fa-pencil fa-fw" aria-hidden="true"></i>&nbsp;Add Trips</div>
-          {/* sign up âge button */}
-          <div className="navBarLink" onClick={onSignUpClick}><i className="fa fa-user fa-fw"></i>&nbsp;SignUp</div>
-          {/* login */}
-          <div className="navBarLink" onClick={() => { return onLoginClick() }}><i className="fa fa-user fa-fw"></i>&nbsp;Login</div>
+          {/* Blog page button*/}
+          <div className="navBarLink" onClick={onBlogClick}><i className="fa fa-user fa-fw"></i>&nbsp;Blogs</div>
+  
         </nav>
 
       </div>
@@ -76,10 +64,8 @@ function App() {
       {showHome && <Home data={data} setData={setData} />}
       {/* add trips page */}
       {showAddTrips && <AddTrips />}
-      {/* sign up page */}
-      {signUp && <Register />}
-      {/* log in */}
-      {login && <Signin data={data} />}
+      {/* Bloging page*/}
+      {blog && <Blog  />}
     </div>
   )
 }
