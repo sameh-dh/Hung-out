@@ -3,22 +3,22 @@ import blogData from './dataBlog';
 
 function Blog() {
     //like button
-    //check if there is picture 2 
+    //check if there is more than one picture
     const picture = (item) => {
-        if (item.picture2 === undefined) {
+        if (item.picture2 === undefined && item.picture3 === undefined && item.picture4 === undefined) {
             return (
                 <div>
                     <img src={item.picture} alt={item.blog} className="image-blog" />
                 </div>
             )
-        } else if (!item.picture2 === undefined && item.picture3 === undefined) {
+        } else if (item.picture3 === undefined && item.picture4 === undefined) {
             return (
                 <div>
                     <img src={item.picture} alt={item.blog} className="image-blog" />
                     <img src={item.picture2} alt={item.blog} className="image-blog" />
                 </div>
             )
-        } else if (!item.picture3 === undefined && item.picture4 === undefined) {
+        } else if ( item.picture4 === undefined) {
             return (
                 <div>
                     <img src={item.picture} alt={item.blog} className="image-blog" />

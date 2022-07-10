@@ -12,6 +12,7 @@ const port = 1337;
 
 const { trips } = require('../database/trips');
 const { User } = require('../database/user')
+const blogs    =require ('../database/blogs')
 
 app.use(express.static('/../client/build'));
 app.use(express.json());
@@ -155,7 +156,26 @@ app.post('/user/login', (req, res) => {
       res.json({ success: false, error: err })
     })
 })
+//blog side
+//add blog
+app.post('/add/blog', (req, res) => {
+  const newBlogs = new blogs({
+    user: req.body.user,
+    userImage: req.body.userImage,
+    blog: req.body.blog,
+    picture:req.body.picture,
+    picture2:req.body.picture2,
+    picture3:req.body.picture3,
+    picture4:req.body.picture4,
 
+  })
+  newBlogs.save().then((data) => {
+    res.json(data)
+  })
+    .catch((err) => {
+      res.status(404)
+    })
+})
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
