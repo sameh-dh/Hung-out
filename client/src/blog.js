@@ -23,22 +23,48 @@ function Blog() {
     
         });
       }
+      //add blog
+      const [user, setUser] = useState('');
+      const [userImage, setUserImage] = useState('');
+      const [blog, setBlog] = useState('');
+      const [pictures, setPictures] = useState('');
+      const [picture2, setPicture2] = useState('');
+      const [picture3, setPicture3] = useState('');
+      const [picture4, setPicture4] = useState('');
+
+      const saveTrips = () =>{
+     
+        Axios.post('http://localhost:1337/add/blog', {
+            user: user,
+            userImage:userImage,
+            blog: blog,
+            picture: pictures,
+            picture2: picture2,
+            picture3: picture3,
+            picture4: picture4
+
+        })
+            .then(response => console.log(response))
+            .catch(err => console.log(err))
+      
+
+    }
     //check if there is more than one picture
     const picture = (item) => {
-        if (item.picture2 === undefined && item.picture3 === undefined && item.picture4 === undefined) {
+        if ((item.picture2 === undefined|| item.picture2 ==="") && (item.picture3 ===undefined ||item.picture3 ==="" )&& (item.picture4 === undefined || item.picture4==="")) {
             return (
                 <div>
                     <img src={item.picture} alt={item.blog} className="image-blog" />
                 </div>
             )
-        } else if (item.picture3 === undefined && item.picture4 === undefined) {
+        } else if ((item.picture3 ===undefined ||item.picture3 ==="" )&& (item.picture4 === undefined || item.picture4==="")) {
             return (
                 <div>
                     <img src={item.picture} alt={item.blog} className="image-blog" />
                     <img src={item.picture2} alt={item.blog} className="image-blog" />
                 </div>
             )
-        } else if ( item.picture4 === undefined) {
+        } else if ( (item.picture4 === undefined || item.picture4==="")) {
             return (
                 <div>
                     <img src={item.picture} alt={item.blog} className="image-blog" />
@@ -56,6 +82,10 @@ function Blog() {
                 </div>
             )
         }
+    }
+    //onchange trick
+    const newblog =(e,use)=>{
+        return use(e.target.value)
     }
   
     return (
@@ -90,13 +120,29 @@ function Blog() {
 
                 {/* add blog */}
                 <h1>Add Blog</h1>
-                <input type="text" placeholder="your user name" />  <br />
-                <input type="text" placeholder="add your blog here" className="blog-input" />  <br />
-                <input type="text" placeholder="image1" />  <br />
-                <input type="text" placeholder="image2" />  <br />
-                <input type="text" placeholder="image3" />  <br />
-                <input type="text" placeholder="image4" />  <br />
-                <button className="button">Add Blog</button>
+                <input type="text" placeholder="your user name" onChange={(e)=>{
+                    console.log(user)
+                   return  newblog(e,setUser)
+                }}/>  <br />
+                <input type="text" placeholder="user image" onChange={(e)=>{
+                   return  newblog(e,setUserImage)
+                }}/>  <br />
+                <input type="text" placeholder="add your blog here" className="blog-input"onChange={(e)=>{
+                   return  newblog(e,setBlog)
+                }} />  <br />
+                <input type="text" placeholder="image1" onChange={(e)=>{
+                   return  newblog(e,setPictures)
+                }}/>  <br />
+                <input type="text" placeholder="image2" onChange={(e)=>{
+                   return  newblog(e,setPicture2)
+                }} />  <br />
+                <input type="text" placeholder="image3" onChange={(e)=>{
+                   return  newblog(e,setPicture3)
+                }}/>  <br />
+                <input type="text" placeholder="image4" onChange={(e)=>{
+                   return  newblog(e,setPicture4)
+                }}/>  <br />
+                <button className="button" onClick={()=>{return  saveTrips()}}>Add Blog</button>
 
             </div>
 
