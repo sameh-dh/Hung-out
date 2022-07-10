@@ -1,6 +1,6 @@
 # Hung-out
 with this App you can find easly a trip or if you want you can add a trip
-
+there is also a blog side to share users experience
 
 ## Team
 
