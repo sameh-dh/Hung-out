@@ -9,10 +9,7 @@ const blogsSchema = new mongoose.Schema({
   picture2:String,
   picture3:String,
   picture4:String,
-  like:{
-    type:String,
-    default:"Like"
-  }
+  like:String
 
 });
 

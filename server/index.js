@@ -167,6 +167,7 @@ app.post('/add/blog', (req, res) => {
     picture2:req.body.picture2,
     picture3:req.body.picture3,
     picture4:req.body.picture4,
+    like:req.body.like
 
   })
   newBlogs.save().then((data) => {
@@ -185,6 +186,29 @@ app.get("/read/blog", (req, res) => {
     res.send(result);
   });
 })
+//update the like button
+app.put("/update/like", (req, res) => {
+  const likes = req.body.like
+  const id = req.body._id
+  blogs.updateOne({_id: id}, {
+    $set: {
+      like:likes,
+     
+    }
+  }, (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("updated like successfully")
+   res.json(result)
+      }
+    })
+
+}
+)
+
+
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });

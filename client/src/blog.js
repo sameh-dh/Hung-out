@@ -11,7 +11,18 @@ function Blog() {
         setBlogData(response.data)
       })
     })
-    //like button
+    //update like 
+    const [like, setLike] = useState("");
+    const updateLike = (_id) => {
+        Axios.put("http://localhost:1337/update/like", {
+          _id: _id,
+          like: like,
+         
+        }).then((response) => {
+          console.log("like updated successfully ");
+    
+        });
+      }
     //check if there is more than one picture
     const picture = (item) => {
         if (item.picture2 === undefined && item.picture3 === undefined && item.picture4 === undefined) {
@@ -46,7 +57,7 @@ function Blog() {
             )
         }
     }
-    
+  
     return (
         <div className="blog-container" >
 
@@ -61,14 +72,15 @@ function Blog() {
                     {/* like button */}
                     <div>
                     <button className="btn-secondary like-review" key={index} onClick={() => {
-                        console.log(blogData[index]['like'])
                         if (blogData[index]['like']==="Like"){
-                     return blogData[index]['like']="You liked this post"
+                            setLike("You liked this post")
+                      return  updateLike(item._id)
                     }else {
-                        return blogData[index]['like']="Like"
+                         setLike("Like")
+                         return    updateLike(item._id)
                     }
                         }}>
-                        <i className="fa fa-heart" ></i> {blogData[index]['like']}</button>
+                        <i className="fa fa-heart" ></i> {item.like}</button>
                </div>
                     </div>
                 </div>;
