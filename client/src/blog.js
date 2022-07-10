@@ -1,7 +1,16 @@
-import React, { useState } from 'react';
-import blogData from './dataBlog';
+import React, { useEffect,useState } from 'react';
+import Axios from 'axios'
+// import blogData from './dataBlog';
 
 function Blog() {
+
+    //get blogs from the database
+    const [blogData, setBlogData] = useState([])
+    useEffect(() => {
+      Axios.get('http://localhost:1337/read/blog').then(response => {
+        setBlogData(response.data)
+      })
+    })
     //like button
     //check if there is more than one picture
     const picture = (item) => {
@@ -51,13 +60,15 @@ function Blog() {
                     {picture(item)}
                     {/* like button */}
                     <div>
-                    <button class="btn-secondary like-review" key={index} onClick={() => {if (blogData[index]['like']==="Like"){
+                    <button className="btn-secondary like-review" key={index} onClick={() => {
+                        console.log(blogData[index]['like'])
+                        if (blogData[index]['like']==="Like"){
                      return blogData[index]['like']="You liked this post"
                     }else {
                         return blogData[index]['like']="Like"
                     }
                         }}>
-                        <i class="fa fa-heart" ></i> {blogData[index]['like']}</button>
+                        <i className="fa fa-heart" ></i> {blogData[index]['like']}</button>
                </div>
                     </div>
                 </div>;

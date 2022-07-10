@@ -5,7 +5,7 @@ const blogData=[
         "blog":"i went to this trip last weekend and it was amazing,the price was around 2000 and 3000 dinnars it was really well organized if there is anyone want to reserve a place i advice you guys to do it . have a nice day .",
         "picture":"https://www.eiu.com/n/wp-content/uploads/2020/01/seoul-south-korea.jpg",
         "picture2":"https://upgradedpoints.com/wp-content/uploads/2017/03/Itinerary-for-Trip-Organization-Apps-Resources-Review.jpg",
-        "like":"Like",
+        "like":"Like"
 
     },
     {
@@ -18,7 +18,7 @@ const blogData=[
         "picture2":"https://thecliff.tn/wp-content/uploads/2021/06/3-TRP_7045-1.jpg",
          "picture3":"https://www.voyage-tunisie.info/wp-content/uploads/2019/10/The-Cliff.jpg",
          "picture4":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3WPc_XosH7X3cELJcM7qKcSJFQi0jYbpyyw&usqp=CAU",
-         "like":"Like",
+         "like":"Like"
     },
     {
         "user":"Bader",
@@ -26,7 +26,7 @@ const blogData=[
         "blog":"i went to this coffe shop in paris with my friends and they have a special coffee to taste,i should go back again there this weekend it's really worth ",
         "picture":"https://cdn.sortiraparis.com/images/80/1467/717737-le-top-des-coffee-shops-a-paris.jpg",
         "like":"Like",
-        "liked":"You liked this post",
+        "liked":"You liked this post"
     }
 
 ]

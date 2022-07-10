@@ -176,6 +176,15 @@ app.post('/add/blog', (req, res) => {
       res.status(404)
     })
 })
+//read blogs
+app.get("/read/blog", (req, res) => {
+  blogs.find({}, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
+    res.send(result);
+  });
+})
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
