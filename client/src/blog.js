@@ -3,7 +3,6 @@ import blogData from './dataBlog';
 
 function Blog() {
     //like button
-    const [liked, setLiked] = useState(false)
     //check if there is picture 2 
     const picture = (item) => {
         if (item.picture2 === undefined) {
@@ -38,24 +37,7 @@ function Blog() {
             )
         }
     }
-    // like button function
- const like = (item,key) => {
-        if (liked === false) {
-            return (
-                <div>
-                    <button class="btn-secondary like-review" key={key} onClick={() => setLiked(true)}>
-                        <i class="fa fa-heart" ></i> {item.like}</button>
-                </div>
-            )
-        } else {
-            return (
-                <div>
-                    <button class="btn-secondary like-review" key={key} onClick={() => setLiked(false)}>
-                        <i class="fa fa-heart" ></i> {item.liked}</button>
-                </div>
-            )
-        }
-    }
+    
     return (
         <div className="blog-container" >
 
@@ -68,7 +50,15 @@ function Blog() {
                     <h2>{item.blog}</h2>
                     {picture(item)}
                     {/* like button */}
-                    {like(item,index)}
+                    <div>
+                    <button class="btn-secondary like-review" key={index} onClick={() => {if (blogData[index]['like']==="Like"){
+                     return blogData[index]['like']="You liked this post"
+                    }else {
+                        return blogData[index]['like']="Like"
+                    }
+                        }}>
+                        <i class="fa fa-heart" ></i> {blogData[index]['like']}</button>
+               </div>
                     </div>
                 </div>;
             }
