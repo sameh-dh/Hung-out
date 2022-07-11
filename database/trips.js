@@ -4,10 +4,11 @@ const mongoose = require('mongoose')
 const tripsSchema = new mongoose.Schema({
 
   destination: String,
-
+  description: String,
   price: Number,
 
   img: String
+
 
 
 });

@@ -7,6 +7,8 @@ function AddTrips() {
     const [destination, setDestination] = useState('');
     const [price, setPrice] = useState();
     const [img, setImg] = useState('');
+    const [description, setDescription] = useState('');
+
 
     const onDestinationChange = function (event) {
         let text = event.target.value
@@ -20,13 +22,18 @@ function AddTrips() {
         let image = event.target.value
         setImg(image)
     }
+    const onDescriptionsChange = function (event) {
+        let description= event.target.value
+        setDescription(description)
+    }
 
     const saveTrips = function (event) {
         event.preventDefault()
         axios.post('http://localhost:1337/get', {
             destination: destination,
             price: price,
-            img: img
+            img: img,
+            description:description
         })
             .then(response => console.log(response))
             .catch(err => console.log(err))
@@ -38,6 +45,8 @@ function AddTrips() {
         <form className="register">
             <label >Destination</label><br />
             <input type="text" placeholder='enter your destination' onChange={onDestinationChange} /><br />
+            <label >Description</label><br />
+            <input type="text" placeholder='enter your destination' onChange={onDescriptionsChange} /><br />
             <label>Price</label><br />
             <input type="number" placeholder='choose price' onChange={onPriceChange} /><br></br>
             <label >Image</label><br />

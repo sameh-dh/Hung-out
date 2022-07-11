@@ -46,7 +46,8 @@ app.post('/get', (req, res) => {
   const newTrips = new trips({
     destination: req.body.destination,
     price: req.body.price,
-    img: req.body.img
+    img: req.body.img,
+    description :req.body.description
   })
   newTrips.save().then((data) => {
     res.json(data)
@@ -84,6 +85,7 @@ app.put("/update", (req, res) => {
   const destination = req.body.destination;
   const img = req.body.img;
   const id = req.body._id
+
 
   const test = () => {
     if (id === undefined) {

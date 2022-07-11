@@ -74,6 +74,7 @@ const Home = (props) => {
 
 
               <h1>{element.destination}</h1>
+              <h4>{element.description}</h4>
               <h1>{element.price} DT </h1>
               {/* update trip */}
 
